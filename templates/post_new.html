@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="height: 65px">
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 mx-auto m-4 card p-4">
+            <h1>New post</h1>
+            <form  method="POST" action="{% url 'post_new' %}">
+                {% csrf_token %}
+
+<!--                <label for="inputIconEx2">Title</label>-->
+<!--                <input type="text" id="inputIconEx2" name="title" class="form-control w-50 mb-4">-->
+                {{ form.title }}
+<!--                {% if user.is_authenticated %}-->
+<!--                    <label for="authorname">Author</label>-->
+                    <label for="'username">Author</label>
+                    <p id="username" class="mb-4">{{ user.get_full_name }} </p>
+
+<!--                {% endif %}-->
+
+<!--                <label for="postbody">Write Post</label>-->
+<!--                <textarea id="postbody" rows="10" name="body" class="form-control mb-4">-->
+
+<!--                </textarea>-->
+                <label for="id-body">Blog Content</label>
+                {{ form.editor1 }}
+
+                <label for="id_status" class="mt-4">Status</label><br>
+                <select name="status" class="browser-default custom-select w-25 mb-4">
+                  {% for val in form.status %}
+                    {{ val }}
+                  {% endfor %}
+                </select>
+                <br>
+
+                <label for="id_tags">Tags</label>
+                {{ form.tags }}
+
+<!--                <label for="postbody">Tags</label>-->
+<!--                <input type="text" class="form-control mb-4 w-50" name="tags" placeholder="Enter tags separated by comma">-->
+
+                <button type="submit" class="btn btn-primary mt-4"> SAVE POST </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}
+{% endblock content %}

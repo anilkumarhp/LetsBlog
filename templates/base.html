@@ -1,0 +1,90 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- logo Font -->
+      <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Local CSS -->
+     <link href="{% static 'styles/reset.css' %}" rel="stylesheet">
+     <link href="{% static 'styles/blog.css' %}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.5/css/mdb.min.css" rel="stylesheet">
+    <title>Let's Blog</title>
+  </head>
+  <body>
+      <header>
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar py-2">
+          <div class="container">
+            <!-- Brand -->
+            {% if user.is_authenticated %}
+              <a class="navbar-brand waves-effect" href="{% url 'list' %}" >
+                <h2 class="m-0"><strong class="blue-text">Let's Blog</strong> </h2>
+              </a>
+            {% else %}
+              <a class="navbar-brand waves-effect" href="{% url 'home' %}" >
+                  <h2 class="m-0"><strong class="blue-text">Let's Blog</strong> </h2>
+              </a>
+            {% endif %}
+            <!-- Collapse -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Right -->
+              <ul class="navbar-nav nav-flex-icons ml-auto">
+                {% if user.is_authenticated %}
+                   <li class="nav-item">
+                      <a href="{% url 'post_new' %}" class="nav-link  waves-effect">
+                        + New Blog Post
+                      </a>
+                  </li>
+                    <li class="nac-item">
+                      <!-- Basic dropdown -->
+                        <span class="mr-4" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">Basic dropdown</span>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
+                          <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                        </div>
+                        <!-- Basic dropdown -->
+                    </li>
+
+                {% else %}
+                   <li class="nav-item">
+                    <a href="{% url 'login' %}" class="nav-link  waves-effect">
+                      Login
+                    </a>
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Navbar -->
+      </header>
+      {% block content %}
+
+      {% endblock %}
+    <!-- Optional JavaScript -->
+   <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.5/js/mdb.min.js"></script>
+  </body>
+</html>
+
+

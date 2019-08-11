@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container w-100 h-100 d-flex justify-content-center align-items-center">
+    <!-- Default form register -->
+<form class="text-center border card shadow bg-white border-light mt-5 p-4" method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+    <p class="h4 mb-4">Sign up</p>
+
+    <div class="form-group mt-1">
+    <!-- Username  -->
+    {{ form.username.errors }}
+    {{ form.username }}
+    </div>
+     <div class="form-row mb-2">
+        <div class="col">
+            <!-- First name -->
+             {{ form.first_name.errors }}
+           {{ form.first_name }}
+        </div>
+        <div class="col">
+            <!-- Last name -->
+             {{ form.last_name.errors }}
+            {{ form.last_name }}
+        </div>
+    </div>
+    <div class="form-group mt-1">
+    <!-- E-mail -->
+        {{ form.email.errors }}
+    {{ form.email }}
+    </div>
+    <div class="form-group mt-1">
+    <!-- Password -->
+          {{ form.password1.errors }}
+    {{ form.password1 }}
+
+    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-2">
+        At least 8 characters and 1 digit
+    </small>
+         </div>
+    <div class="form-group mt-1">
+    <!-- Conform Password -->
+        {{ form.password2.errors }}
+    {{ form.password2 }}
+
+    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-2">
+        Optional - for two step authentication
+    </small>
+         </div>
+
+    <!-- Sign up button -->
+    <button class="btn btn-info my-4 btn-block" type="submit">Sign Up</button>
+
+    <!-- Terms of service -->
+    <p>By clicking
+        <em>Sign up</em> you agree to our
+        <a href="" target="_blank">terms of service</a>
+
+</form>
+<!-- Default form register -->
+</div>
+{% endblock %}
