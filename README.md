@@ -1,4 +1,4 @@
-# myblog
+# LetsBlog
  A simple blog to post your story online.
  
  This website is built using Django2.2 and python3.7.
