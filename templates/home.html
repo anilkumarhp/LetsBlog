@@ -20,7 +20,8 @@
         </h3>
 
         <p class="date ">
-          Published {{ post.publish }} by <span class="text-capitalize">{{ post.author.first_name }}</span> {{ post.author.last_name }}
+          Published {{ post.publish }} by <span class="text-capitalize">{{ post.author.first_name }}</span>
+          {{ post.author.last_name }}
         </p>
         {{ post.editor1|truncatewords:50|linebreaks }}
         <p class="tags">
@@ -50,4 +51,3 @@
 {% include 'footer.html' %}
 
 {% endblock %}
-

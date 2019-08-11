@@ -2,35 +2,36 @@
 {% block content %}
 <div class="container w-100 h-100 d-flex justify-content-center align-items-center">
     <!-- Default form login -->
-<form class="text-center border border-light w-25 card shadow bg-white px-3 py-4" method="POST">
+    <form class="text-center border border-light w-25 card shadow bg-white px-3 py-4" method="POST">
 
-    <p class="h4 mb-4">Sign in</p>
+        <p class="h4 mb-4">Sign in</p>
 
-    <!-- Email -->
-    <input type="text" id="defaultLoginFormEmail" name='username' class="form-control mb-4" placeholder="Username">
+        <!-- Email -->
+        <input type="text" id="defaultLoginFormEmail" name='username' class="form-control mb-4" placeholder="Username">
 
-    <!-- Password -->
-    <input type="password" id="defaultLoginFormPassword" name='password' class="form-control mb-4" placeholder="Password">
+        <!-- Password -->
+        <input type="password" id="defaultLoginFormPassword" name='password' class="form-control mb-4"
+            placeholder="Password">
 
-    <div class="d-flex">
-        <div class="ml-auto">
-            <!-- Forgot password -->
-            <p class="m-0"><a href="{% url 'password_reset' %}">Forgotten Password?</a></p>
+        <div class="d-flex">
+            <div class="ml-auto">
+                <!-- Forgot password -->
+                <p class="m-0"><a href="{% url 'password_reset' %}">Forgotten Password?</a></p>
+            </div>
         </div>
-    </div>
 
-    <!-- Sign in button -->
-     {% csrf_token %}
-    <button class="btn btn-info btn-block my-4" type='submit'>Sign in</button>
+        <!-- Sign in button -->
+        {% csrf_token %}
+        <button class="btn btn-info btn-block my-4" type='submit'>Sign in</button>
 
-    <!-- Register -->
-    <p>Not a member?
-        <a href="{% url 'register' %}">Register</a>
-    </p>
+        <!-- Register -->
+        <p>Not a member?
+            <a href="{% url 'register' %}">Register</a>
+        </p>
 
-    <!-- Social login -->
+        <!-- Social login -->
 
 
-</form>
+    </form>
 </div>
 {% endblock %}

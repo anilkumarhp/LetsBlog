@@ -19,7 +19,8 @@
         </h3>
         <hr class="m-0">
         <p class="text-muted mt-2">
-          Published {{ post.publish }} by <span class="text-capitalize">{{ post.author.first_name }}</span> {{ post.author.last_name }}
+          Published {{ post.publish }} by <span class="text-capitalize">{{ post.author.first_name }}</span>
+          {{ post.author.last_name }}
         </p>
         {{ post.editor1|truncatewords:50|linebreaks }}
         <p class="tags">
@@ -46,5 +47,5 @@
   </div>
 </div>
 
-  {% include 'footer.html' %}
-  {% endblock %}
+{% include 'footer.html' %}
+{% endblock %}
